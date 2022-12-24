@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Encriptador</title>
+
+	<link rel="stylesheet" href="reset.css">
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<script> 
+
+	function desencriptar(){
+
+		var originalString = document.encript.testoEncriptar.value.toLowerCase();
+
+			var newStringa = originalString.replace(/ai/gi, "a"); // Search string for "ai" and replace with "a"
+			//console.log(newStringa);
+
+			var newStringe = newStringa.replace(/enter/gi, "e");
+			//console.log(newStringe);
+
+			var newStringi = newStringe.replace(/imes/gi, "i");
+			//console.log(newStringi);
+
+			var newStringo = newStringi.replace(/ober/gi, "o");
+			//console.log(newStringo);
+
+			var newStringu = newStringo.replace(/ufat/gi, "u");
+			//console.log(newStringu);
+
+
+			document.encript.encriptado1.value = "";
+			document.encript.encriptado1.value = newStringu;
+		}
+		
+
+		function encriptar(){			
+			var orig = "";
+
+			var mudado = new Array();
+
+			orig = document.encript.testoEncriptar.value.toLowerCase();
+
+			
+			for (var i = 0; i < orig.length; i++) {
+				mudado[i]= orig[i];
+				if (orig[i]== 'a') {
+
+					mudado[i] = 'ai';
+				}
+
+				if (orig[i]== 'e') {
+					mudado[i] = 'enter';
+				}
+
+				if (orig[i]== 'i') {
+					mudado[i] = 'imes';
+				}
+
+				if (orig[i]== 'o') {
+					mudado[i] = 'ober';
+				}
+
+				if (orig[i]== 'u') {
+					mudado[i] = 'ufat';
+				}
+			}
+
+
+			document.encript.encriptado1.value = "";
+			document.encript.encriptado1.value = mudado.join("");
+			
+		}
+
+
+		function limpiar(){
+
+			document.encript.testoEncriptar.value = "";
+			document.encript.encriptado1.value = "";
+			document.getElementById("entrada").focus();
+
+
+
+		}
+
+
+	</script>
+
+	<body>
+
+		<header>
+			<div class="caja">
+				<h1><img src="imagenes/01.svg" width="110px"></h1>
+
+				<nav>
+					<ul>
+						<li><a href="index.html">Encriptador</a></li>
+
+						<li><a href="#">Contacto</a></li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+
+		<main>
+			<h3>Encriptador de texto</h3>
+			<form name="encript" > 
+				<div class="textos">
+					<label>Texto de entrada</label>
+					<textarea  name=testoEncriptar id="entrada" cols=50 rows=13 > </textarea>
+
+
+					
+				</div>
+
+				<div class="textos">
+					<label>Salida</label>
+					<textarea name="encriptado1" cols=50 rows=13 disabled=""> </textarea>
+					
+				</div>
+
+				<div class="botones">
+
+					<input class="input-padron" type=button value="Encriptar" onclick="encriptar()">
+					<input class="input-padron" type=button value="Desencriptar " onclick="desencriptar()"> 
+					<input class="input-padron" type=button value="Limpiar" onclick="limpiar()">
+				</div>
+
+			</form>
+
+
+		</main>
+
+		<footer>
+
+			<p class="copyright">&copy; Copyright Claudemir Ferreira - 2022</p>
+		</footer>
+
+	</body>
+	</html>
